@@ -9,19 +9,23 @@ const server = new ApolloServer({
   resolvers,
 });
 
-// configure datasources here i.e. ORM, API, MessagingQueue etc
-const { url } = await startStandaloneServer(
-  server,
-  {
-    context: () => ({
-      dataSources: {
-        inMem: inMemDataSource,
-      },
-    }),
-  },
-  {
-    listen: { port: 4000 },
-  }
-);
+const standaloneServer = async () => {
+  // configure datasources here i.e. ORM, API, MessagingQueue etc
+  const { url } = await startStandaloneServer(
+    server,
+    {
+      context: () => ({
+        dataSources: {
+          inMem: inMemDataSource,
+        },
+      }),
+    },
+    {
+      listen: { port: 4000 },
+    }
+  );
 
-console.log(`🚀  Server ready at: ${url}`);
+  console.log(`🚀  Server ready at: ${url}`);
+};
+
+standaloneServer();
