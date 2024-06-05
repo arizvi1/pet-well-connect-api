@@ -8,8 +8,8 @@ async function getResolvers() {
   const resolvers = await loadFiles(path.join(__dirname + "/resolvers"), {
     extensions: ["js"],
   });
+
   return resolvers;
 }
 
-const resolvers = await getResolvers();
-export default mergeResolvers(resolvers);
+export default mergeResolvers(await getResolvers());
