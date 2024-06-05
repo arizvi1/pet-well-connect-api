@@ -1,0 +1,22 @@
+scalar PetType
+
+# enum PetType {
+#   DOG
+#   CAT
+#   RABBIT
+#   BIRD
+# }
+
+type Pet {
+  id: Int!
+  name: String!
+  type: PetType!
+}
+
+extend type Query {
+  pets: [Pet]
+}
+
+extend type Mutation {
+  createPet(name: String, type: PetType): Boolean
+}
