@@ -9,7 +9,7 @@ async function getResolvers() {
     extensions: ["js"],
   });
 
-  return resolvers;
+  return mergeResolvers(resolvers);
 }
 
-export default mergeResolvers(await getResolvers());
+export default getResolvers;
