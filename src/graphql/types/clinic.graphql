@@ -1,11 +1,14 @@
+scalar ClinicCode
+
 type Clinic {
-  id: ID! #ID
-  name: String!
-  address: String!
-  vets: [Vet]
+  id: ID!
+  address: String
+  vets: [Vet!]
+  clinicCode: ClinicCode
 }
 
 extend type Query {
   clinic(id: Int!): Clinic
   clinics: [Clinic]!
+  clinicByCode(code: ClinicCode): Clinic
 }

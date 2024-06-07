@@ -231,6 +231,7 @@ const pets = [
     id: 5,
     name: "Charlie",
     type: "Bird",
+    hasWings: true,
     vetHistory: [{ vetId: 3, date: "2023-04-01", reason: "Wing Trimming" }],
     clinicHistory: [
       { clinicId: 4, date: "2023-04-01", reason: "Wing Trimming" },

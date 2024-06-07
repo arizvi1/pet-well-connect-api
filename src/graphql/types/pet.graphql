@@ -7,14 +7,30 @@ scalar PetType
 #   BIRD
 # }
 
-type Pet {
+interface  Pet {
   id: Int!
   name: String!
   type: PetType!
 }
 
+type Bird implements Pet {
+  id: Int!
+  name: String!
+  type: PetType!
+  hasWings: Boolean
+}
+
+type Dog implements Pet {
+  id: Int!
+  name: String!
+  type: PetType!
+}
+
+union SearchResult = Bird | Dog 
+
 extend type Query {
   pets: [Pet]
+  searchPets(name: String): [SearchResult]
 }
 
 extend type Mutation {

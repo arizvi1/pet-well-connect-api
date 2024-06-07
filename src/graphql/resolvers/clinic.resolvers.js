@@ -8,12 +8,18 @@ export default {
     clinics: async (_, __, { dataSources }) => {
       return [...dataSources.inMem.getClinics(), null];
     },
+    clinicByCode: async () => {
+      return { id: 12, name: "abc" }
+    }
   },
   Clinic: {
     vets: async (parent, _, { dataSources }, info) => {
-      return dataSources.inMem
+      return aws.inMem
         .getVets()
         .filter(({ id }) => parent.vetIds.includes(id));
     },
+    clinicCode: async () => {
+      return "code"
+    }
   },
 };
